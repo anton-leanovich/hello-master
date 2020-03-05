@@ -8,14 +8,9 @@ pipeline {
                 sh 'make'
             }
         }
-        stage('Build') {
-            steps {
-                sh 'make install'
-            }
-        }
         stage('Run') {
             steps {
-                sh './greet'
+                echo 'Running..'
             }
         }
     }
