@@ -4,12 +4,13 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                sh 'g++ hello.cpp main.cpp -o helloworld'
+                sh 'cmake .'
+                sh 'make'
             }
         }
         stage('Run') {
             steps {
-                sh './helloworld'
+                echo 'Running..'
             }
         }
     }
