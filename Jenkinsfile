@@ -7,5 +7,10 @@ pipeline {
                 sh 'g++ hello.cpp main.cpp -o helloworld'
             }
         }
+        stage('Run') {
+            steps {
+                sh '.helloworld'
+            }
+        }
     }
 }
