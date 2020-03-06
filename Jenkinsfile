@@ -1,6 +1,7 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'ubuntu1' }
+    }
     stages {
         stage('Compile') {
             steps {
@@ -10,7 +11,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh './bin/greet'
+                sh './bin/*'
             }
         }
     }
