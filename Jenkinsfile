@@ -1,12 +1,12 @@
 pipeline {
     agent {
-        docker { image 'ubuntu1' }
+        dockerfile { filename 'Dockerfile' }
     }
     stages {
         stage('Compile') {
             steps {
                 sh 'cmake .'
-                sh 'make'
+                sh 'make $DESTDIR=~/Desktop/hello-master/target'
             }
         }
         stage('Run') {
