@@ -6,7 +6,8 @@ pipeline {
         stage('Compile') {
             steps {
                 sh 'cmake .'
-                sh 'make $DESTDIR=~/Desktop/hello-master/target'
+                sh 'make'
+                sh 'make install'
             }
         }
         stage('Run') {
