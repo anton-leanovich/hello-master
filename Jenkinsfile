@@ -16,10 +16,10 @@ pipeline {
                 sh './bin/*'
             }
         }
-        stage('Zip artifacts') {
+        stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                sh 'bin/*'
+                sh 'zip artifacts.zip ./bin*'
             }
         }
     }
