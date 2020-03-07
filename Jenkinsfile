@@ -7,7 +7,6 @@ pipeline {
             steps {
                 sh 'cmake .'
                 sh 'make'
-                sh 'make install'
             }
         }
         stage('Run') {
