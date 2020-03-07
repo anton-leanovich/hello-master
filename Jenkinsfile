@@ -12,14 +12,14 @@ pipeline {
         }
         stage('Run') {
             steps {
-                echo '========== Running the project =========='
+                echo '========== Running the artifacts =========='
                 sh './bin/*'
             }
         }
-        stage('Archive artifacts') {
+        stage('Zip artifacts') {
             steps {
-                echo '========== Archiving artifacts =========='
-                archiveArtifacts 'bin/*'
+                echo '========== Zipping artifacts =========='
+                sh 'bin/*'
             }
         }
     }
