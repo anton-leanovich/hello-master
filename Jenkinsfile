@@ -3,12 +3,6 @@ pipeline {
         dockerfile { filename 'Dockerfile' }
     }
     stages {
-        stage('Cleanup') {
-            steps {
-                echo '========== Cleaning up workspace ========='
-                cleanWs()
-            }
-        }
         stage('Compile') {
             steps {
                 echo '========== Compiling source code ========='
@@ -30,8 +24,9 @@ pipeline {
         }
     }
     post {
-        failure {
-            echo '========== Something went wrong!  ========='
+        always {
+            echo '========== Cleaning up workspace ========='
+            cleanWs()
         }
     }
 }
