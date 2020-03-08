@@ -3,6 +3,12 @@ pipeline {
         dockerfile { filename 'Dockerfile' }
     }
     stages {
+        stage('Cleanup') {
+            steps {
+                echo '========== Cleaning up workspace ========='
+                cleanWs()
+            }
+        }
         stage('Compile') {
             steps {
                 echo '========== Compiling source code ========='
@@ -19,13 +25,13 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                sh 'zip artifacts.zip ./bin/*'
+                sh 'zip artifacts.zip -r ./bin/*'
             }
         }
     }
     post {
-        always {
-            cleanWs()
+        failure {
+            echo '========== Something went wrong!  ========='
         }
     }
 }
