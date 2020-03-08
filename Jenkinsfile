@@ -22,5 +22,9 @@ pipeline {
                 sh 'zip artifacts.zip ./bin/*'
             }
         }
+    post {
+        always {
+            cleanWs()
+        }
     }
 }
