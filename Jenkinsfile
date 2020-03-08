@@ -19,7 +19,7 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                sh 'zip artifacts.zip -r ./bin/*'
+                sh 'zip artifacts.zip -r bin/*'
             }
         }
     }
