@@ -3,7 +3,7 @@ pipeline {
         dockerfile { filename 'Dockerfile' }
         }
     options {
-        timestamps
+        timestamps()
     }
     stages {
         stage('Compile') {
