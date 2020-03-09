@@ -1,6 +1,9 @@
 pipeline {
     agent {
         dockerfile { filename 'Dockerfile' }
+        }
+    options {
+        timestamps
     }
     stages {
         stage('Compile') {
@@ -19,14 +22,14 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                sh 'zip artifacts.zip -r bin/*'
+                sh 'zip artifacts.zip -r bin'
             }
         }
     }
     post {
         always {
             echo '========== Cleaning up workspace ========='
-            // cleanWs()
+            cleanWs()
         }
     }
 }
