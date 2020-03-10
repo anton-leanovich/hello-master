@@ -23,14 +23,16 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                sh 'zip artifacts.zip -r bin'
+                dir('bin') {
+                    sh 'zip artifacts.zip *'
+                }
             }
         }
     }
     post {
         always {
             echo '========== Cleaning up workspace ========='
-            cleanWs()
+            // cleanWs()
         }
     }
 }
