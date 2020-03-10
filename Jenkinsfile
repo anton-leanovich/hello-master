@@ -1,8 +1,10 @@
 pipeline {
     agent {
         dockerfile { filename 'Dockerfile' }
-        }
-    triggers { pollSCM('*/10 * * * *')}
+    }
+    triggers {
+        pollSCM('*/10 * * * *')
+    }
     options {
         timestamps()
     }
@@ -24,7 +26,7 @@ pipeline {
             steps {
                 echo '========== Zipping artifacts =========='
                 dir('./bin') {
-                    sh 'zip artifacts.zip *'
+                    sh 'zip artifacts_${BUILD_NUMBER}.zip *'
                 }
             }
         }
@@ -32,7 +34,7 @@ pipeline {
     post {
         always {
             echo '========== Cleaning up workspace ========='
-            cleanWs()
+            // acleanWs()
         }
     }
 }
