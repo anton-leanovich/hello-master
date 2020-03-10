@@ -30,7 +30,7 @@ pipeline {
     post {
         always {
             echo '========== Cleaning up workspace ========='
-            cleanWs()9
+            cleanWs()
         }
     }
 }
