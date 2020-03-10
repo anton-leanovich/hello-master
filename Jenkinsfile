@@ -23,7 +23,7 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                dir('bin') {
+                dir('./bin') {
                     sh 'zip artifacts.zip *'
                 }
             }
