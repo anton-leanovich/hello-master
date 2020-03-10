@@ -2,6 +2,7 @@ pipeline {
     agent {
         dockerfile { filename 'Dockerfile' }
         }
+    triggers { pollSCM('*/30 * * * *')}
     options {
         timestamps()
     }
@@ -29,7 +30,7 @@ pipeline {
     post {
         always {
             echo '========== Cleaning up workspace ========='
-            cleanWs()
+            cleanWs()9
         }
     }
 }
