@@ -25,8 +25,7 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                archiveArtifacts '*'
-                dir('archive') {
+                dir('bin') {
                     sh 'zip artifacts_${BUILD_NUMBER}.zip *'
                 }
             }
@@ -35,7 +34,7 @@ pipeline {
     post {
         always {
             echo '========== Cleaning up workspace ========='
-            // cleanWs()
+            cleanWs()
         }
     }
 }
