@@ -25,7 +25,7 @@ pipeline {
         stage('Zip') {
             steps {
                 echo '========== Zipping artifacts =========='
-                dir('bin') {
+                dir('archive') {
                     sh 'zip artifacts_${BUILD_NUMBER}.zip *'
                 }
             }
