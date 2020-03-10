@@ -2,7 +2,7 @@ pipeline {
     agent {
         dockerfile { filename 'Dockerfile' }
         }
-    triggers { pollSCM('*/30 * * * *')}
+    triggers { pollSCM('*/10 * * * *')}
     options {
         timestamps()
     }
